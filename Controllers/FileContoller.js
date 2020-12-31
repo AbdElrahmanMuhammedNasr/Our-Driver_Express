@@ -7,7 +7,9 @@ exports.addNewFile = (req, res, next) => {
         snapShot: fileBody.snapShot,
         fileLink: fileBody.fileLink,
         userEmail: fileBody.userEmail,
-        creatAt:new Date()
+        type: fileBody.type,
+        downloadNum: 0,
+        createAt: new Date()
 
 
     });
@@ -58,8 +60,15 @@ exports.getUserFiles = (req, res, next) => {
 }
 
 
-
-
+exports.downloadFile = (req, res, next) => {
+    const id = req.params.id;
+    File.findByIdAndUpdate({'_id': id}, {$inc: {downloadNum: 1}}).then(r => res.status(200).json({message: 'Download'}))
+        .catch(err => {
+            res.status(417).json({
+                message: err.message
+            })
+        })
+}
 
 
 

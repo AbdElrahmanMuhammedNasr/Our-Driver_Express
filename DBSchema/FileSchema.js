@@ -16,10 +16,17 @@ const FileSchema = new Schema({
     userEmail: {
         type: String,
         required: true
-    }, creatAt: {
+    }, createAt: {
         type: Date,
         required: true
+    },type:{
+        type:String,
+        required:true
+    },downloadNum:{
+        type:Number,
+        required:true
     }
+
 
 })
 module.exports = mongoose.model('File',FileSchema)

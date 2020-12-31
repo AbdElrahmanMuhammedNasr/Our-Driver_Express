@@ -5,8 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'files')));
 
 const authRoutes = require('./Routes/LoginRoutes');
 const userRoutes = require('./Routes/UserRoutes');
@@ -21,8 +20,8 @@ app.use((req, res, next) => {
 })
 
 
-app.use('auth',authRoutes);
-app.use('user',userRoutes);
+app.use('/auth',authRoutes);
+app.use('/user',userRoutes);
 app.use('file',fileRoutes);
 
 mongoose.connect('mongodb://127.0.0.1:27017/ourStore',{ useFindAndModify: false })
