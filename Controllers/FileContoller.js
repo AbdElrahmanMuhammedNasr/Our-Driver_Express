@@ -6,7 +6,9 @@ exports.addNewFile = (req, res, next) => {
         name: fileBody.name,
         snapShot: fileBody.snapShot,
         fileLink: fileBody.fileLink,
-        userEmail: fileBody.userEmail
+        userEmail: fileBody.userEmail,
+        creatAt:new Date()
+
 
     });
 

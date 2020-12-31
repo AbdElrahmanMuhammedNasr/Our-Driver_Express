@@ -6,16 +6,19 @@ const FileSchema = new Schema({
         required:true
     },
     snapShot:{
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
-    fileLink:{
-        type:String,
-        required:true
+    fileLink: {
+        type: String,
+        required: true
     },
-    userEmail:{
-        type:String,
-        required:true
+    userEmail: {
+        type: String,
+        required: true
+    }, creatAt: {
+        type: Date,
+        required: true
     }
 
 })

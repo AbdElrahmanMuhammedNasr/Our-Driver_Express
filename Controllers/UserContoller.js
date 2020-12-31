@@ -7,7 +7,8 @@ exports.createUser = (req, res, next) => {
 
     const user = new User({
         email:userBody.email,
-        name:userBody.name
+        name:userBody.name,
+        creatAt:new Date()
     })
     user.save().then(r=>{
         bcrypt.hash(userBody.password, 10)

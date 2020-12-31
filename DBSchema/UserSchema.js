@@ -9,6 +9,10 @@ const UserSchema = new Schema({
     name:{
         type:String,
         required:true
+    },
+    creatAt:{
+        type:Date,
+        required:true
     }
 })
 
