@@ -32,6 +32,17 @@ exports.createUser = (req, res, next) => {
 
 }
 
+exports.getOneUser=(req,res,next)=>{
+    const email = req.params.email;
+    User.findOne({'email':email})
+    .then(user=>{   
+        res.status(200).json(user)
+    }).catch(err =>{
+        console.log(err)
+    })
+    
+}
+
 exports.deleteUser = (req, res, next)=>{
     const email = req.params.email;
     User.findOneAndDelete({'email':email})

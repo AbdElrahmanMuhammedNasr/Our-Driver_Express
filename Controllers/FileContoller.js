@@ -11,7 +11,6 @@ exports.addNewFile = (req, res, next) => {
         downloadNum: 0,
         createAt: new Date()
 
-
     });
 
     file.save()
@@ -45,7 +44,7 @@ exports.getUserFiles = (req, res, next) => {
     const email =  req.params.email;
     File.find({'userEmail':email})
         .then(r=>{
-            res.status(302).json({
+            res.status(200).json({
                 files:r,
                 beta:{
                     number:r.length
@@ -57,6 +56,23 @@ exports.getUserFiles = (req, res, next) => {
                 message:err.message
             })
         })
+}
+
+exports.getInitFiles =(req, res,next)=>{
+    const number = req.params.number;
+    File.find()
+        .then(r=>{
+            res.status(200).json({
+                files:r,
+              
+            })
+        })
+        .catch(err=>{
+            res.status(417).json({
+                message:err.message
+            })
+        })
+
 }
 
 
