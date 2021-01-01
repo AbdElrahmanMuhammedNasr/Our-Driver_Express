@@ -5,6 +5,6 @@ router.post('/addFile',controller.addNewFile)
 router.delete('/deleteFile/:fileId',controller.deleteFile)
 router.get('/getUserFile/:email',controller.getUserFiles)
 router.get('/getInitFiles/:number',controller.getInitFiles)
-router.get('downloadFile/:id', controller.downloadFile)
+router.get('/downloadFile/:id', controller.downloadFile)
 
 module.exports = router
